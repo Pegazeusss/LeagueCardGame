@@ -8,7 +8,7 @@
 
 body {
   height: 100vh;
-  background-color: rgb(236, 231, 226);
+  background-color: rgb(59, 56, 51);
   display: flex;
 }
 /* game = memroy-game */
@@ -49,4 +49,41 @@ body {
 }
 .turned-up{
   transform: rotateY(180deg);
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  position: absolute;
+  top: 170px;
+  right: 283px;
+  font-size: 100px;
+  cursor: pointer;
+  color: black;
+}
+
+.modal img{
+  width: 600px;
+  height: 600px;
+}
+.modal p{
+  font-size: 50px;
 }

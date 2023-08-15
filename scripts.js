@@ -51,5 +51,20 @@ function resetBoard() {
     cards.style.order = randomNum;
   });
 })();
+function disableCardClicking() {
+  firstCard.removeEventListener("click", flipCard);
+  secondCard.removeEventListener("click", flipCard);
+
+  if (document.querySelectorAll(".memory-card:not(.flip)").length === 0) {
+    const winModal = document.getElementById("winModal");
+    winModal.style.display = "block";
+
+    const closeButton = document.querySelector(".close");
+    closeButton.addEventListener("click", () => {
+      winModal.style.display = "none";
+    });
+  }
+}
+
 
 cards.forEach((cards) => cards.addEventListener("click", flipCard));
