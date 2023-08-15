@@ -51,6 +51,7 @@ function resetBoard() {
     cards.style.order = randomNum;
   });
 })();
+
 function disableCardClicking() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
@@ -59,12 +60,23 @@ function disableCardClicking() {
     const winModal = document.getElementById("winModal");
     winModal.style.display = "block";
 
+    const playAgainButton = document.getElementById("playAgainButton");
+    playAgainButton.addEventListener("click", () => {
+      resetGame();
+      winModal.style.display = "none";
+    });
+
     const closeButton = document.querySelector(".close");
     closeButton.addEventListener("click", () => {
       winModal.style.display = "none";
     });
   }
 }
-
+function resetGame() {
+  cards.forEach((card) => {
+    card.classList.remove("flip");
+    card.addEventListener("click", flipCard);
+  });
+}
 
 cards.forEach((cards) => cards.addEventListener("click", flipCard));
